@@ -1,5 +1,5 @@
 export type PageProps = {
-    params: Promise<{
-      lng: string;
-    }>;
-  };
+  params: Promise<{
+    lng: string;
+  }>;
+};

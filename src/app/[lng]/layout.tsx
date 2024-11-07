@@ -2,20 +2,14 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { dir } from "i18next";
 import { languages } from "@/i18n/settings";
+import { LayoutProps } from "@/types/layoutProps";
 
-// import "@/styles/globals.css";
+import "@/styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export async function generateStaticParams(): Promise<{ lng: string }[]> {
   return languages.map((lng) => ({ lng }));
-}
-
-interface RootLayoutProps {
-  children: React.ReactNode;
-  params: {
-    lng: string;
-  };
 }
 
 export const metadata: Metadata = {
@@ -26,7 +20,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
   params,
-}: RootLayoutProps) {
+}: LayoutProps) {
   const {lng} = await params;
   return (
     <html lang={lng} dir={dir(lng)}>
