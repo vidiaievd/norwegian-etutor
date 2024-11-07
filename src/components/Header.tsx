@@ -1,12 +1,7 @@
 "use server";
 
 import { LanguageSwitcher } from "./LanguageSwitcher";
-
-interface UserProps {
-  image?: string;
-  name?: string;
-  email: string;
-}
+import { ThemeToggle } from "./ThemeToggle";
 
 const Header = async ({
   lng,
@@ -19,8 +14,9 @@ const Header = async ({
     <header className={className}>
       <div className="flex justify-between items-center p-4">
         <div className="text-xl font-bold">My App</div>
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-3">
           <LanguageSwitcher lng={lng} />
+          <ThemeToggle />
         </div>
       </div>
     </header>
