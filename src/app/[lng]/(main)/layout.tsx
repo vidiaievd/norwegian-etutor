@@ -1,14 +1,12 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { LayoutProps } from "@/types/layoutProps";
 
-export default function MainLayout({
+export default async function MainLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: { lng: string; tag: string; item: string };
-}) {
-  const { lng } = params;
+}: LayoutProps) {
+  const { lng } = await params;
   return (
     <div className="h-screen w-screen flex flex-col overflow-hidden">
       <Header
